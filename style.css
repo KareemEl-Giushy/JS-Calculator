@@ -15,11 +15,24 @@ body{
 	margin: 15% 0 0 0;
     text-align: center;
 }
+.sub_div{
+	width: 25%;
+	display: inline-block;
+    border: 1px solid;
+}
+.text-box input{
+	height: 35px;
+	margin: 10px 0;
+}
 .numbers{
-
+	margin: auto;
+	transform: rotateY(180deg);
 }
 .button{
-
+	display: inline-block;
+	width: calc(100%/5);
+	transform: rotateY(180deg);
+	padding: 10px;
 }
 .operations{
 
