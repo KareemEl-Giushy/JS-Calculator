@@ -6,6 +6,7 @@
 body{
 	margin: 0;
 	padding: 0;
+    background: linear-gradient(to right, #5C258D, #4389A2);
 }
 .container{
 	width: 75%;
@@ -17,12 +18,30 @@ body{
 }
 .sub_div{
 	width: 25%;
+    height: 250px;
 	display: inline-block;
     border: 1px solid;
 }
+.text-box{
+	position: relative;
+}
 .text-box input{
-	height: 35px;
-	margin: 10px 0;
+    height: 35px;
+    float: left;
+    margin: 10px 25px;
+    width: 80%;
+    font-size: 20px;
+    background-color: transparent;
+    border: none;
+    color: #FFF;
+}
+.text-box img{
+    position: absolute;
+    top: 13px;
+    right: 5px;
+    width: 25px;
+    cursor: pointer;
+   	color: #FFF;
 }
 .numbers{
 	margin: auto;
@@ -33,7 +52,15 @@ body{
 	width: calc(100%/5);
 	transform: rotateY(180deg);
 	padding: 10px;
+	cursor: pointer;
+	margin: 3px;
+    box-shadow: 0 1px 4px -1px #DDD;
 }
 .operations{
 
+}
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
 }
