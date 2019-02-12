@@ -31,5 +31,7 @@ var viewer 		= el('#viewer'),
 
 	operator;
 
+// start the getting
 
+	
 }());
