@@ -75,7 +75,7 @@ clear.onclick = function () {
 equals.onclick = function (){
 
 	if (viewer.value != 0 && theNum){
-		
+		// Checking if the user starts an operation with the * or /
 		switch (theNum.charAt(0)) {
 			case '*':
 				console.log('error *');
@@ -84,22 +84,22 @@ equals.onclick = function (){
 				console.log('error /');
 				errors = 'you can\'t start with an operator';
 		}
-
+		// + validation
 		if (theNum.charAt(0) == '+' && theNum.charAt(1) == ''){
 			console.log('error +');
 			errors = 'you can\'t start with an operator';
 		}
-
+		// -validation
 		if (theNum.charAt(0) == '-' && theNum.charAt(1) == ''){
 			console.log('error -');
 			errors = 'you can\'t start with an operator';
 		}
-
+		// check if it's a number or not
 		if (!isNumeric(theNum)){
 			console.log('this is not a number');
 			errors = 'this is not a number';
 		}
-
+		// printing the value
 		if (errors == ''){
 			viewer.value = eval(theNum);
 			theNum = '';
