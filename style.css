@@ -28,26 +28,31 @@ body{
 .text-box input{
     height: 35px;
     float: left;
-    margin: 10px 25px;
-    width: 80%;
+    margin: 10px 0 10px 25px;
+    width: 75%;
     font-size: 20px;
     background-color: transparent;
     border: none;
     color: #FFF;
 }
-.text-box img{
-    position: absolute;
-    top: 13px;
-    right: 5px;
-    width: 25px;
+.text-box div{
+    position: relative;
+    display: inline;
+    top: 15px;
     cursor: pointer;
-   	color: #FFF;
+    margin: 3px;
+    color: #FFF;
+    font-size: 25px;
+    font-family: arial;
 }
 .numbers{
 	margin: auto;
 	transform: rotateY(180deg);
 }
 .button{
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-user-select: none;
 	display: inline-block;
 	width: calc(100%/5);
 	transform: rotateY(180deg);

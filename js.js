@@ -3,35 +3,109 @@
  ** 
  ** uses the querySelector and querySelector all
 **/
-(function () {
-	'use strict';
 
-	var el = function (element){
-		if (element.charAt(0) === '#'){
-			return document.querySelector(element);
-		}else {
-			return document.querySelectorAll(element);
-		}
-	};
+var el = function (element){
+	'use strict';
+	if (element.charAt(0) === '#'){
+		return document.querySelector(element);
+	}else {
+		return document.querySelectorAll(element);
+	}
+};
+
+/**
+ ** isnumeric function
+ **
+ ** to check if it is a number
+**/
+function isNumeric(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}
 
 // declaring the main variables
-var viewer 		= el('#viewer'),
+var viewer 	= el('#viewer'),
 
-	equals 		= el('#equals'),
+equals 		= el('#equals'),
 
-	nums 		= el('.num'),
+nums 		= el('.num'),
 
-	ops 		= el('.ops'),
+ops 		= el('.ops'),
 
-	theNum 		= '',
+clear 		= el('#clear'),
 
-	OldNum 		= '',
+theNum 		= '',
+
+errors		= '';
+
+
+// start the getting the data
+for (var i = 0 ; i < nums.length; i++) {
+	nums[i].addEventListener('click', function (){
+		theNum += this.textContent;
+
+		viewer.value = theNum;
+		
+		console.log('done putting the num');
+	});
+}
+
+// get the operators
+for (var i = 0 ; i < ops.length; i++) {
+	ops[i].addEventListener('click', function (){
+		
+		theNum += this.textContent;
+
+		viewer.value = theNum;
+		console.log('done selecting the operator');
+	});
+}
+
+// clear the values
+clear.onclick = function () {
 	
-	result,
+	if (viewer.value != 0 && theNum){
+		theNum = '';
+		errors = '';
+		viewer.value = 0;
+	}
+	viewer.textContent = 0;
+}
 
-	operator;
+// the equals button
+equals.onclick = function (){
 
-// start the getting
+	if (viewer.value != 0 && theNum){
+		
+		switch (theNum.charAt(0)) {
+			case '*':
+				console.log('error *');
+				errors = 'you can\'t start with an operator';
+			case '/':
+				console.log('error /');
+				errors = 'you can\'t start with an operator';
+		}
 
-	
-}());
+		if (theNum.charAt(0) == '+' && theNum.charAt(1) == ''){
+			console.log('error +');
+			errors = 'you can\'t start with an operator';
+		}
+
+		if (theNum.charAt(0) == '-' && theNum.charAt(1) == ''){
+			console.log('error -');
+			errors = 'you can\'t start with an operator';
+		}
+
+		if (!isNumeric(theNum)){
+			console.log('this is not a number');
+			errors = 'this is not a number';
+		}
+
+		if (errors == ''){
+			viewer.value = eval(theNum);
+			theNum = '';
+			console.log('equals');
+		}else {
+
+		}
+	}
+}
