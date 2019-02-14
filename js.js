@@ -33,10 +33,7 @@ ops 		= el('.ops'),
 
 clear 		= el('#clear'),
 
-theNum 		= '',
-
-errors		= '';
-
+theNum 		= '';
 
 // start the getting the data
 for (var i = 0 ; i < nums.length; i++) {
@@ -75,24 +72,25 @@ clear.onclick = function () {
 equals.onclick = function (){
 
 	if (viewer.value != 0 && theNum){
+		var error = document.createElement("div");
 		// Checking if the user starts an operation with the * or /
 		switch (theNum.charAt(0)) {
 			case '*':
 				console.log('error *');
-				errors = 'you can\'t start with an operator';
+				var node = document.createTextNode("you can\'t start with an operator");
 			case '/':
 				console.log('error /');
-				errors = 'you can\'t start with an operator';
+				var node = document.createTextNode("you can\'t start with an operator");
 		}
 		// + validation
 		if (theNum.charAt(0) == '+' && theNum.charAt(1) == ''){
 			console.log('error +');
-			errors = 'you can\'t start with an operator';
+			var node = document.createTextNode("you can\'t start with an operator");
 		}
 		// -validation
 		if (theNum.charAt(0) == '-' && theNum.charAt(1) == ''){
 			console.log('error -');
-			errors = 'you can\'t start with an operator';
+			var node = document.createTextNode("you can\'t start with an operator");
 		}
 		// check if it's a number or not (buggy)
 		/*if (!isNumeric(theNum)){
@@ -100,12 +98,12 @@ equals.onclick = function (){
 			errors = 'this is not a number';
 		}*/
 		// printing the value
-		if (errors == ''){
+		if (error == ''){
 			viewer.value = eval(theNum);
 			theNum = '';
 			console.log('equals');
 		}else {
-
+			error.appendChild(node);
 		}
 	}
 }
