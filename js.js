@@ -94,11 +94,11 @@ equals.onclick = function (){
 			console.log('error -');
 			errors = 'you can\'t start with an operator';
 		}
-		// check if it's a number or not
-		if (!isNumeric(theNum)){
+		// check if it's a number or not (buggy)
+		/*if (!isNumeric(theNum)){
 			console.log('this is not a number');
 			errors = 'this is not a number';
-		}
+		}*/
 		// printing the value
 		if (errors == ''){
 			viewer.value = eval(theNum);
